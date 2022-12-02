@@ -10,4 +10,9 @@ RSpec.describe 'Rock Paper Scissors' do
       expect(total_score(example_strategy_guide)).to eq 15
     end
   end
+  describe 'Total Score According To The New Guide' do
+    it 'calculates score according to the new strategy guide' do
+      expect(total_score_with_new_rule(example_strategy_guide)).to eq 12
+    end
+  end
 end
