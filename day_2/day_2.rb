@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-ROUND_OUTCOME = {
-  'A X' => 3,
-  'B X' => 0,
-  'C X' => 6,
-  'A Y' => 6,
-  'B Y' => 3,
-  'C Y' => 0,
-  'A Z' => 0,
-  'B Z' => 6,
-  'C Z' => 3
+ROUND_OUTCOME_RULES = {
+  'A X' => { outcome: 3, shape_score: 1 },
+  'B X' => { outcome: 0, shape_score: 1 },
+  'C X' => { outcome: 6, shape_score: 1 },
+  'A Y' => { outcome: 6, shape_score: 2 },
+  'B Y' => { outcome: 3, shape_score: 2 },
+  'C Y' => { outcome: 0, shape_score: 2 },
+  'A Z' => { outcome: 0, shape_score: 3 },
+  'B Z' => { outcome: 6, shape_score: 3 },
+  'C Z' => { outcome: 3, shape_score: 3 }
 }.freeze
 
 NEW_ROUND_OUTCOME_RULES = {
@@ -24,17 +24,11 @@ NEW_ROUND_OUTCOME_RULES = {
   'C Z' => { outcome: 6, shape_score: 1 }
 }.freeze
 
-SHAPE_SCORE = {
-  'X' => 1,
-  'Y' => 2,
-  'Z' => 3
-}.freeze
-
 def total_score(encrypted_rounds_with_opponents_choices)
   encrypted_rounds_with_opponents_choices
     .split(/\n/)
     .tally
-    .map { |sequence, occurrences| (ROUND_OUTCOME[sequence] + SHAPE_SCORE[sequence[-1]]) * occurrences }
+    .map { |sequence, occurrences| ROUND_OUTCOME_RULES[sequence].values.sum * occurrences }
     .sum
 end
 
