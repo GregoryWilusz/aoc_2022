@@ -19,11 +19,10 @@ def sum_priorities_considering_badges(list)
 end
 
 def priorities
-  Hash[
-    (('a'..'z').to_a + ('A'..'Z').to_a)
+  (('a'..'z').to_a + ('A'..'Z').to_a)
     .map
     .with_index { |element, index| [element, index + 1] }
-  ]
+    .to_h
 end
 
 all_items = File.read('./day_3/list_of_all_items_in_rucksacks.txt')
