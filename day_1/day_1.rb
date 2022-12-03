@@ -4,7 +4,7 @@ def total_calories(elves_items_calories_string)
   elves_items_calories_string.split(/\n/)
                              .map(&:to_i)
                              .slice_before(&:zero?)
-                             .map { |array| array.sum }
+                             .map(&:sum)
 end
 
 def max_total_calories(elves_items_calories_string)
