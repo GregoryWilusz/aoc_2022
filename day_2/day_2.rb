@@ -41,5 +41,5 @@ def total_score_with_new_rule(encrypted_rounds_with_opponents_choices)
 end
 
 encrypted_rounds_with_opponents_choices = File.read('./day_2/encrypted_strategy_guide.txt')
-p total_score(encrypted_rounds_with_opponents_choices)
-p total_score_with_new_rule(encrypted_rounds_with_opponents_choices)
+p "[Day 2][Part 1]: #{total_score(encrypted_rounds_with_opponents_choices)}"
+p "[Day 2][Part 2]: #{total_score_with_new_rule(encrypted_rounds_with_opponents_choices)}"
