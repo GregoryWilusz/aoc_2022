@@ -14,4 +14,10 @@ RSpec.describe 'Rucksack Reorganization' do
       expect(sum_priorities(example_list_of_contents_of_six_rucksacks)).to eq 157
     end
   end
+
+  describe 'Sum Of Priorities Of All Item Types Considering Badges' do
+    it 'calculates the sum of priorities' do
+      expect(sum_priorities_considering_badges(example_list_of_contents_of_six_rucksacks)).to eq 70
+    end
+  end
 end
